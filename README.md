@@ -1,7 +1,7 @@
-<p align="left">
+<p align="center">
   <img src="https://github.com/TelegramTools/TLSecret/raw/master/images/Intro.png">
  </p>
-<p align="right">
+<p align="center">
   <img src="https://github.com/TelegramTools/TLSecret/raw/master/images/SecretModeCompatible.png">
  </p>
 

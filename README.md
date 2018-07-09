@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <img src="https://github.com/TelegramTools/TLSecret/raw/master/images/Intro.png">
  </p>
 <p align="right">

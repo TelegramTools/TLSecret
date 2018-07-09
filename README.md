@@ -9,7 +9,7 @@
 
 TLSecret allows you to grant access to your Telegram account in other Telegram Tools apps, which may require logging in two users (TLMerger, TLRevert and TLImporter for instance).
 This is known as "Secret Mode" in all of my apps. 
-They can be indetified by the "Compatible with Secret Mode" label.
+They can be indetified by the *Compatible with Secret Mode* label.
 
 # How to use?
 

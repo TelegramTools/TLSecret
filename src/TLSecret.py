@@ -19,7 +19,7 @@ from telethon.utils import *
 import pyAesCrypt
 import logging
 
-password = ##THIS IS THE PASSWORD THAT WILL BE USED TO ENCRYPT DATABASES USING TLSecret. YOU MUST USE THE SAME PASSWORD IN THE RECEIVING APP AND TLSECRET.
+password = ##INSERT YOUR PASSWORD VARIABLE HERE. THE LISTENER APP AND TLSECRET MUST HAVE THE SAME VALUES DECLARED HERE.
 bufferSize = 64 * 1024
 api_id = ##INSERT YOUR APIID HERE
 api_hash = ##INSERT YOUR APIHASH HERE
@@ -131,15 +131,28 @@ if not client1.is_user_authorized():
     print("Your partner has been authorised in Telegram successfully!\nYou can keep this window open for revoking the session in case it's necessary.\nYou can close this app if you don't want to revoke it.\n\n")
     getpass.getpass("\n\nPress ENTER to revoke the session: ")
     print("\nLogging out...")
-    client1.connect()
+    while not client1.is_connected():
+        client1.connect()
+        if client1.is_connected():
+            break
+        else:
+            print("There was a connection problem... Retrying in 2s")
+            time.sleep(2)
     client1.log_out()
     print("\n\nLogged out!")
 else:
     getpass.getpass("There is already a session logged in. Press ENTER to revoke it: ")
+    while not client1.is_connected():
+        client1.connect()
+        if client1.is_connected():
+            break
+        else:
+            print("There was a connection problem... Retrying in 2s")
+            time.sleep(2)
+    client1.log_out()
     try:
         os.remove("DB.aes")
     except:
         pass
-    client1.log_out()
     print("Done!")
 getpass.getpass("Press ENTER to close TLSecret...")

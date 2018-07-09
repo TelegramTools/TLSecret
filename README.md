@@ -1,46 +1,72 @@
 <p align="center">
   <img src="https://github.com/TelegramTools/TLSecret/raw/master/images/Intro.png">
  </p>
+<p align="right">
+  <img src="https://github.com/TelegramTools/TLSecret/raw/master/images/SecretModeCompatible.png">
+ </p>
 
 # TLSecret
-An small script for simplifying the authentication of other Telegram's users in all Telegram Tools apps
 
-Some Telegram Tools apps requires you to sign in two users in Telegram. With TLSecret, you can authenticate and pass your Telegram's keys using the "Secret Mode" on all Telegram Tools apps, without the need of giving your phone number, code and password to your partner's using one of the other Telegram Tools apps.
-This way, you have full control of your account whenever you want or need to use apps like TLImporter with another person.
+TLSecret allows you to grant access to your Telegram account in other Telegram Tools apps, which may require logging in two users (TLMerger, TLRevert and TLImporter for instance).
+This is known as "Secret Mode" in all of my apps. 
+They can be indetified by the "Compatible with Secret Mode" label.
 
-# How to use it?
+# How to use?
 
-**This instructions assumes that the person who is reading this is the one who wants to grant access into a Telegram account to a person using any of the Telegram Tools apps.**
+When using TLSecret, we will be using two different apps at the same time. Some explanations:
 
-When using the "Secret Mode", there are two apps involved: 
-· The **listener** app (TLRevert, TLMerger, TLImporter and any other Telegram Tools' app that can use the "Secret Mode" to login users). This will be the app where you want to be logged in remotely. It can be running in your partner's computer
-· TLSecret, which will be running in your own computer.
+- The **listener** app: The Telegram Tools' app where you want to be logged in (TLImporter, TLMerger, TLRevert...)
+- TLSecret, which will help to grant access to a Telegram account in any of the **listener** apps.
 
-As you are the one who wants to grant access to your account, you will be using TLSecret app.
+The instructions below considers that you will be the person using TLSecret, while your partner will be using any of the **listener** apps.
+The **listener** app can be running in a remote computer, no physical presence is required to authenticate you succesfully!
 
 ## Preparation
 
-The person using the **listener** app must have entered into the "Secret Mode" (every Telegram Tools app which supports "Secret Mode" will prompt the user at some point whether using "Secret Mode" or not).
-After entering into the "Secret Mode", the chat list of your partner will be displayed. He must choose you (the person using TLSecret). After that, a message saying "Waiting for a response..." will be displayed in his chat.
+Before you can do anything with TLSecret, your partner must prepare the **listener** app:
 
-## Using TLSecret
+- All **listeners** app will prompt the user, at any point, whether using the "Secret Mode" or not. Your partner should agree to use it
+- Your partner's chat list will be displayed in the window. He must choose you from the list.
+- The app will display **Waiting for a response...**.
 
-Once the **listener** app is in "Waiting for a response..." mode, you can use TLSecret.
+Once the app is **Waiting for a response...**, you will be able to use TLSecret to grant your partner's access into your Telegram account.
 
-Input your phone number, verification code and password, just like you would do in other Telegram app. Your chat list will be displayed after the authentication is done succesfully. Choose your partner there (the person using the **listener** app).
+## Granting access
 
-After that, TLSecret will work behind-the-scenes, and will authorize yourself in your partner's computer. You are done!
+If your partner's **listener** app is already *Waiting for a response...*, open TLSecret and perform these simple steps:
 
-## Final tips
+- Log in in Telegram as you would normally do: Input your phone number, verification code and password.
+- (The app will be encrypting your details, which may take a few seconds, but don't freak out if you see that it stays blank for a while!)
+- Your chat list will be printed inside the window. Choose your partner from the list.
+- Wait until the authentication is done succesfully in your partner's computer.
 
-After the authentication is done succesfully in the **listener** app, you will be always in control of your session. By pressing ENTER, you will revoke the access to your account and log out your friend of Telegram.
-If you have closed the app after the authorization is done, don't worry!. Next time you run it, you will be able to revoke the session by pressing ENTER as well.
+You are done!
+At this point, you will have full control over your authorization in Telegram. Just by pressing ENTER, you will be able to revoke the authorization and discard that session.
+If you have closed the app after authenticating, you will be able to revoke the session by opening it again and pressing ENTER.
+
+## What if something else goes wrong?
+
+As stated in the app's disclaimer, there is no perfect encryption and the 100% security doesn't exist. In fact, there are many security flaws in the app: The password for decrypting the file could be easily obtained from the binaries, after decrypting the session file, it could be read before it's processed by the **listener** app, the Telegram's AuthKey is stored in the RAM's of your partner's computer, which can also be read if he has the proper knowledge. Although I consider that TLSecret is really safe to use and has proper security, you need to know that nothing is perfect and I don't suggest you to use this app with completely unknown people, but at least, with some people you trust a little.
+Remember that you also will be able to revoke any session if everything fails, using other Telegram apps: Go to *Settings - Privacy and Security - Active Sessions* and revoke any session you don't know.
+
+# Downloads
+
+You can always find the latest version of the app in the [Releases tab](https://github.com/TelegramTools/TLSecret/releases).
+
+Binaries for Windows are included and bundled as an .exe executable. If you want to use this python script in Mac or Linux, you will be able to, using the compiled binaries under the *bin* folder. Whenever you are running the compiled binary, make sure that you have Python3 installed in your system and also pip. Run this command: `pip install -r requirements.txt` before running the app.
+
+# Use from sources
+
+Make sure that you replace the `apiID`, `apiHash` and `password` variables in your own script. Read instructions [here](https://core.telegram.org/api/obtaining_api_id) for getting the `apiID` and `apihash` variables of Telegram.
+
+Remember that you need to use the same `password` variable in the **listener** app and in TLSecret, otherwise encryption will fail.
 
 # Credits
 
-Secret mode couldn't be possible without [Telethon](https://github.com/LonamiWebs/Telethon), and his great creator, [Lonami](https://github.com/Lonami), who always was up to answering questions and helping in development. I'm so grateful for his patience :).
-Also, huge thanks to [pyAesCrypt](https://github.com/marcobellaccini/pyAesCrypt)
-Huge thanks to all the team behind [PyInstaller](https://www.pyinstaller.org/), which I used to build the Windows binaries.
+Huge thanks to [Telethon](https://github.com/LonamiWebs/Telethon), and his great creator, [Lonami](https://github.com/Lonami), who always was up to answering questions and helping in development. I'm so grateful for his patience :).
+Also, huge thanks to [pyAESCrypt](https://github.com/marcobellaccini/pyAesCrypt), which simplified a lot the process of encrypting/decrypting the session files.
+Thanks to the [PyInstaller](https://www.pyinstaller.org/) team for their great tool, which I used to build the Windows binaries.
+
+Also, huge acknowledgements to Telegram for making such a great messenger!
 
 **Give always credits to all the original authors and owners when using some parts of their hard work in your own projects**
-

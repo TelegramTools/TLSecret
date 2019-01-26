@@ -1,3 +1,8 @@
+##### THIS SCRIPT HAS BEEN MADE BY FERFERGA. PLEASE, DON'T CLAIM THAT IT'S YOURS.
+##### GIVE ALWAYS CREDITS TO ORIGINAL AUTHORS.
+#####
+##### THANKS FOR USING!
+
 import datetime
 import getpass
 import logging
@@ -5,8 +10,11 @@ import shutil
 import sqlite3
 import sys
 import time
-import cryptg
-from cryptg import *
+try:
+    import cryptg
+    from cryptg import *
+except:
+    pass
 from os import mkdir
 
 import progressbar  # progressbar2 module
@@ -19,20 +27,21 @@ from telethon.utils import *
 import pyAesCrypt
 import logging
 
-password = ##INSERT YOUR PASSWORD VARIABLE HERE. THE LISTENER APP AND TLSECRET MUST HAVE THE SAME VALUES DECLARED HERE.
+password = "PASSWORD_FOR_SECRET_MODE_HERE"
 bufferSize = 64 * 1024
-api_id = ##INSERT YOUR APIID HERE
-api_hash = ##INSERT YOUR APIHASH HERE
+api_id = YOUR_API_ID_HERE
+api_hash = 'YOUR_API_HASH_HERE'
 TLdevice_model = 'Desktop device'
 TLsystem_version = 'Console'
-TLapp_version = '- TLSecret 1.0.1'
+TLapp_version = '- TLSecret 1.0.2'
 TLlang_code = 'en'
 TLsystem_lang_code = 'en'
 dialogs = None
 ChosenChat = None
 file = None
 
-client1 = TelegramClient("User2", api_id, api_hash, device_model=TLdevice_model, system_version=TLsystem_version, app_version=TLapp_version, lang_code=TLlang_code, system_lang_code=TLsystem_lang_code)
+client1 = TelegramClient("User2", api_id, api_hash, device_model=TLdevice_model, system_version=TLsystem_version, app_version=TLapp_version, lang_code=TLlang_code, system_lang_code=TLsystem_lang_code, spawn_read_thread=False, update_workers=1)
+#TELETHON 1.0 AND FORWARD: client1 = TelegramClient("User2", api_id, api_hash, device_model=TLdevice_model, system_version=TLsystem_version, app_version=TLapp_version, lang_code=TLlang_code, system_lang_code=TLsystem_lang_code)
 logging.basicConfig(filename="TLSecretHelper-log.log", level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 def StartClient1():
@@ -127,7 +136,8 @@ if not client1.is_user_authorized():
     print("\n\nSending your session file to your partner...")
     file = client1.send_file(ChosenChat, "DB.aes")
     print("\n\nWaiting for a response...")
-    client1.run_until_disconnected()
+    #client1.run_until_disconnected() UNCOMMENT FOR TELETHON VERSION 1.0 AND FORWARD
+    client1.idle()
     print("Your partner has been authorised in Telegram successfully!\nYou can keep this window open for revoking the session in case it's necessary.\nYou can close this app if you don't want to revoke it.\n\n")
     getpass.getpass("\n\nPress ENTER to revoke the session: ")
     print("\nLogging out...")

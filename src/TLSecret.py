@@ -118,7 +118,6 @@ if not client1.is_user_authorized():
     StartClient1()
     print("Done! Connected to Telegram!")
     client1.disconnect()
-    print(StringSession.save(client1.session))
     sess = io.BytesIO(StringSession.save(client1.session).encode())
     with open("DB.aes", "wb") as fOut:
         pyAesCrypt.encryptStream(sess, fOut, password, bufferSize)

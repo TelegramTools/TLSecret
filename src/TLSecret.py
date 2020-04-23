@@ -111,7 +111,7 @@ def PrintChatList():
 ##ENTRY POINT OF THE CODE
 client1.connect()
 print("\nWelcome! This app will create an encrypted session file and will send it through Telegram to your partner for using it with other Telegram's Tools apps\n\nWARNING: Although this makes decrypting the session file or accessing your account difficult for your partner, there are some ways to get the password and decrypt it using reverse-engineering means. Use it with a trustful person and with this consideration in mine.\nYou will always have the option to revoke the session file for your partner if you see that something isn't going as expected.")
-getpass("\n\n\nPress ENTER to continue")
+getpass("\n\n\nPress ENTER to continue: ")
 
 if not client1.is_user_authorized():
     print("\nNow, it's time to login in Telegram\n")

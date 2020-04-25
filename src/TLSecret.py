@@ -18,13 +18,14 @@ from telethon.sessions import StringSession
 import pyAesCrypt
 import logging
 
+__version__ = '1.0.4'
 password = "PASSWORD_FOR_SECRET_MODE_HERE"
 bufferSize = 64 * 4096
 api_id = YOUR_API_ID_HERE
 api_hash = 'YOUR_API_HASH_HERE'
 TLdevice_model = 'Desktop device'
 TLsystem_version = 'Console'
-TLapp_version = '- TLSecret 1.0.4'
+TLapp_version = '- TLSecret ' + __version__
 TLlang_code = 'en'
 TLsystem_lang_code = 'en'
 dialogs = None

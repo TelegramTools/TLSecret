@@ -76,7 +76,7 @@ sources using the same password for it to work. You can specify the password use
 
 Huge thanks to [Telethon](https://github.com/LonamiWebs/Telethon), and his great creator, [Lonami](https://github.com/Lonami), who always was up to answering questions and helping in development. I'm so grateful for his patience :).
 Also, huge thanks to [pyAESCrypt](https://github.com/marcobellaccini/pyAesCrypt), which simplified a lot the process of encrypting/decrypting the session files.
-Thanks to the [PyInstaller](https://www.pyinstaller.org/) team for their great tool, which I used to build the Windows binaries.
+Thanks to the [PyInstaller](https://www.pyinstaller.org/) team for their great tool, which I used to build the binaries.
 
 Also, huge acknowledgements to Telegram for making such a great messenger!
 
